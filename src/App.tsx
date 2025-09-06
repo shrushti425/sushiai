@@ -66,7 +66,7 @@ function App() {
       link:"https://github.com/shrushti425/Market-Data-Analysis"
     },
     {
-      title: 'Web Scraping Pipeline',
+      title: 'Airline Ticket Booking System',
       description: 'Automated data collection system using Python Scrapy for market research.',
       tech: ['Python', 'Scrapy', 'SQL'],
       icon: <Table className="w-8 h-8 text-violet-400" />
