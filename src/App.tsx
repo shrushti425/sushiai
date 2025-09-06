@@ -56,18 +56,21 @@ function App() {
       description: 'Interactive dashboard for business metrics analysis using Cognos Analytics and Power BI.',
       tech: ['Cognos', 'Power BI', 'SQL'],
       icon: <BarChart className="w-8 h-8 text-violet-400" />
+      link:"https://github.com/shrushti425/Business-Dashboard"
     },
     {
       title: 'Market Data Analysis',
       description: 'Python-based analysis pipeline for market trends and consumer behavior patterns.',
       tech: ['Python', 'Pandas', 'Matplotlib'],
       icon: <PieChart className="w-8 h-8 text-violet-400" />
+      link:"https://github.com/shrushti425/Market-Data-Analysis"
     },
     {
       title: 'Web Scraping Pipeline',
       description: 'Automated data collection system using Python Scrapy for market research.',
       tech: ['Python', 'Scrapy', 'SQL'],
       icon: <Table className="w-8 h-8 text-violet-400" />
+      link:"https://github.com/shrushti425/flightbookingsystem"
     }
   ];
 
@@ -357,7 +360,13 @@ function App() {
         <h2 className="text-3xl font-bold mb-12 glow-text">Projects</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={project.title} className="card group">
+            <a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card group block p-4 rounded-lg hover:scale-105 transition-transform duration-300">
+            
               <div className="mb-4">{project.icon}</div>
               <h3 className="text-xl font-semibold mb-3 text-violet-400">{project.title}</h3>
               <p className="text-slate-300 mb-4">{project.description}</p>
@@ -368,7 +377,7 @@ function App() {
                   </span>
                 ))}
               </div>
-            </div>
+          </a>
           ))}
         </div>
       </section>
