@@ -55,22 +55,22 @@ function App() {
       title: 'Data Visualization Dashboard',
       description: 'Interactive dashboard for business metrics analysis using Cognos Analytics and Power BI.',
       tech: ['Cognos', 'Power BI', 'SQL'],
-      icon: <BarChart className="w-8 h-8 text-violet-400" />
-      link:"https://github.com/shrushti425/Business-Dashboard"
+      icon: <BarChart className="w-8 h-8 text-violet-400" />,
+      link:"https://github.com/shrushti425/Business-Dashboard",
     },
     {
       title: 'Market Data Analysis',
       description: 'Python-based analysis pipeline for market trends and consumer behavior patterns.',
       tech: ['Python', 'Pandas', 'Matplotlib'],
-      icon: <PieChart className="w-8 h-8 text-violet-400" />
-      link:"https://github.com/shrushti425/Market-Data-Analysis"
+      icon: <PieChart className="w-8 h-8 text-violet-400" />,
+      link:"https://github.com/shrushti425/Market-Data-Analysis",
     },
     {
       title: 'Airline Ticket Booking System',
       description: 'Automated data collection system using Python Scrapy for market research.',
       tech: ['Python', 'Scrapy', 'SQL'],
-      icon: <Table className="w-8 h-8 text-violet-400" />
-      link:"https://github.com/shrushti425/flightbookingsystem"
+      icon: <Table className="w-8 h-8 text-violet-400" />,
+      link:"https://github.com/shrushti425/flightbookingsystem",
     }
   ];
 
