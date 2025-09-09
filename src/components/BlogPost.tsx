@@ -28,7 +28,7 @@ export default function BlogPost({ onBack }: BlogPostProps) {
             <div className="flex items-center gap-6 text-slate-400 text-sm">
               <div className="flex items-center gap-2">
                 <Calendar className="w-4 h-4" />
-                <span>January 15, 2025</span>
+                <span>August 8, 2025</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4" />
