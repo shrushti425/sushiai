@@ -141,7 +141,7 @@ function App() {
     {/* Image Section (refined) */}
     <div className="flex justify-center items-center mt-6 md:mt-0">
       <img
-        src="/sushi.jpg"
+        src="/sushi.jpeg"
         alt="Shrushti"
         className="rounded-2xl shadow-lg w-[300px] object-cover object-top transition-transform duration-300 hover:scale-105"
       />
@@ -326,7 +326,7 @@ function App() {
                   Sometimes life takes unexpected turns that lead you exactly where you need to be. This is the story of how one email changed my entire perspective on data science...
                 </p>
                 <div className="flex items-center gap-4 text-sm text-slate-400">
-                  <span>January 15, 2025</span>
+                  <span>8 August, 2025</span>
                   <span>•</span>
                   <span>5 min read</span>
                 </div>
@@ -358,7 +358,7 @@ function App() {
 
       {/* Footer */}
       <footer className="py-8 text-center text-slate-400 border-t border-slate-800">
-        <p>© 2024 Shrushti Raut. All rights reserved.</p>
+        <p>© 2025 Shrushti Raut. All rights reserved.</p>
       </footer>
     </div>
   );
