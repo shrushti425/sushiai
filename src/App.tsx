@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import BlogPost from './components/BlogPost';
+import ShaderShowcase from './components/ui/hero';
+import { NavBar } from './components/ui/tubelight-navbar';
+import { motion } from 'framer-motion';
 import { 
   Home, 
   User, 
@@ -29,6 +32,15 @@ function App() {
   const [glowPosition, setGlowPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
 
+  const navItems = [
+    { name: 'Home', url: '#home', icon: Home },
+    { name: 'About', url: '#about', icon: User },
+    { name: 'Skills', url: '#skills', icon: Code2 },
+    { name: 'Projects', url: '#projects', icon: Briefcase },
+    { name: 'Blog', url: '#blog', icon: BookOpen },
+    { name: 'Contact', url: '#contact', icon: Mail }
+  ];
+
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -52,25 +64,25 @@ function App() {
 
   const projects = [
     {
-      title: 'Data Visualization Dashboard',
-      description: 'Interactive dashboard for business metrics analysis using Cognos Analytics and Power BI.',
-      tech: ['Cognos', 'Power BI', 'SQL'],
+      title: 'Business Data Analysis Dashboard',
+      description: 'Interactive dashboard made using IBM Cognos for comprehensive business metrics analysis and data visualization.',
+      tech: ['IBM Cognos', 'Data Analytics'],
       icon: <BarChart className="w-8 h-8 text-violet-400" />,
-      link:"https://github.com/shrushti425/Business-Dashboard",
+      link: 'https://github.com/shrushti425/Business-Dashboard'
     },
     {
-      title: 'Market Data Analysis',
-      description: 'Python-based analysis pipeline for market trends and consumer behavior patterns.',
+      title: 'Regional Sales Analysis',
+      description: 'Analysed regional sales data using Python to find market trends and consumer behaviour patterns with comprehensive data insights.',
       tech: ['Python', 'Pandas', 'Matplotlib'],
       icon: <PieChart className="w-8 h-8 text-violet-400" />,
-      link:"https://github.com/shrushti425/Market-Data-Analysis",
+      link: 'https://github.com/shrushti425/Regional_sales_analysis'
     },
     {
       title: 'Airline Ticket Booking System',
-      description: 'Automated data collection system using Python Scrapy for market research.',
-      tech: ['Python', 'Scrapy', 'SQL'],
+      description: 'Created a comprehensive airline ticket booking system using DBMS and Python with full booking functionality.',
+      tech: ['Python', 'SQL'],
       icon: <Table className="w-8 h-8 text-violet-400" />,
-      link:"https://github.com/shrushti425/flightbookingsystem",
+      link: 'https://github.com/shrushti425/flightbookingsystem'
     }
   ];
 
@@ -96,107 +108,13 @@ function App() {
         }}
       />
 
-      {/* Navigation */}
-      <nav className="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <span className="text-xl font-semibold text-violet-400 flex items-center gap-2">
-              Shrushti Raut
-            </span>
-            <div className="hidden md:flex space-x-8">
-              <a href="#home" className="nav-link">Home</a>
-              <a href="#about" className="nav-link">About</a>
-              <a href="#skills" className="nav-link">Skills</a>
-              <a href="#projects" className="nav-link">Projects</a>
-              <a href="#blog" className="nav-link">Blog</a>
-              <a href="#contact" className="nav-link">Contact</a>
-            </div>
-          </div>
-        </div>
-      </nav>
+      {/* Tubelight Navigation */}
+      <NavBar items={navItems} />
 
       {/* Hero Section */}
-     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-  {/* Video Background */}
-  <div className="absolute inset-0 z-0">
-    <iframe
-      className="w-full h-full object-cover"
-      src="https://www.youtube.com/embed/sQ22pm-xvrE?autoplay=1&mute=1&controls=0&loop=1&playlist=sQ22pm-xvrE&modestbranding=1&showinfo=0"
-      title="About Me Video"
-      allow="autoplay; encrypted-media"
-      allowFullScreen
-    />
-    {/* Dark overlay for readability */}
-    <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm z-10" />
-  </div>
-
-  {/* Hero Content */}
-  <div className="relative z-20 text-center max-w-3xl px-4">
-    <div className="mb-4 text-violet-300 text-sm md:text-base font-medium tracking-wide">
-      Ex-Research Intern @ IIM Ahmedabad | AI/ML Enthusiast | Python Developer
-    </div>
-    <h1 className="text-4xl md:text-6xl font-bold text-violet-400 mb-6 animate-fade-in glow-text">
-      Shrushti Raut
-    </h1>
-    <p className="text-lg text-slate-300 mb-8 animate-fade-in">
-      Hey! I'm Shrushti, a third-year AI & ML student who loves turning messy data into insights that actually matter. From building predictive models to crafting dashboards and diving into NLP, I'm all about solving real-world problems with data and having fun while doing it.
-    </p>
-    
-    {/* Blog Highlight Popup */}
-    <div className="mb-8 animate-fade-in">
-      <div 
-        onClick={() => setShowBlog(true)}
-        className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-600/20 to-purple-600/20 
-                   border border-violet-400/30 rounded-full px-4 py-2 text-sm text-violet-300 
-                   hover:border-violet-400/60 hover:bg-gradient-to-r hover:from-violet-600/30 
-                   hover:to-purple-600/30 transition-all duration-300 cursor-pointer group"
-      >
-        <div className="w-2 h-2 bg-violet-400 rounded-full animate-pulse"></div>
-        <span>Read my new blog: How I landed IIM Ahm internship</span>
-        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </div>
-    </div>
-
-    {/* Social Links */}
-    <div className="flex justify-center items-center gap-6 mb-8 animate-fade-in">
-      <a 
-        href="https://github.com/shrushti425" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="text-slate-400 hover:text-violet-400 transition-all duration-300 p-3 hover:bg-violet-400/10 rounded-full hover:scale-110"
-      >
-        <Github className="w-6 h-6" />
-      </a>
-      <a 
-        href="https://linkedin.com/in/shrushti-raut4" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="text-slate-400 hover:text-violet-400 transition-all duration-300 p-3 hover:bg-violet-400/10 rounded-full hover:scale-110"
-      >
-        <Linkedin className="w-6 h-6" />
-      </a>
-      <a 
-        href="https://x.com/codewithsushi" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="text-slate-400 hover:text-violet-400 transition-all duration-300 p-3 hover:bg-violet-400/10 rounded-full hover:scale-110"
-      >
-        <Twitter className="w-6 h-6" />
-      </a>
-      <a 
-        href="mailto:smraut3434@gmail.com" 
-        className="text-slate-400 hover:text-violet-400 transition-all duration-300 p-3 hover:bg-violet-400/10 rounded-full hover:scale-110"
-      >
-        <Mail className="w-6 h-6" />
-      </a>
-    </div>
-
-    <a href="#contact" className="btn-primary group inline-flex items-center justify-center">
-      Let's Connect 
-      <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-    </a>
-  </div>
-</section>
+      <section id="home" className="relative min-h-screen">
+        <ShaderShowcase onBlogClick={() => setShowBlog(true)} />
+      </section>
 
 <section id="about" className="section-container">
   <h2 className="text-3xl font-bold mb-6 glow-text">About Me</h2>
@@ -230,45 +148,6 @@ function App() {
     </div>
   </div>
 </section>
-
-      {/* What I Do Section */}
-      <section className="section-container">
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="glass-card p-8 rounded-xl">
-            <h2 className="text-2xl font-bold mb-6 glow-text flex items-center gap-3">
-              💡 What I Do
-            </h2>
-            <div className="space-y-4 text-slate-300">
-              <p>
-                I turn data into decisions. From cleaning and transforming raw datasets to building predictive models, I thrive on making information actionable and insightful. I enjoy uncovering patterns that not only solve problems but also drive business strategy.
-              </p>
-              <p>
-                I work with Python, SQL, and Excel to crunch numbers, and bring data stories to life using Tableau, Power BI, and IBM Cognos Analytics. I also love web scraping and integrating APIs to gather the right data for the job.
-              </p>
-              <p>
-                On the machine learning side, I design models for prediction, NLP, and automation using tools like Scikit-learn, TensorFlow, and PyTorch. Visualizing trends with Matplotlib, Seaborn, and interactive dashboards is my way of helping teams make smarter, data-driven decisions.
-              </p>
-            </div>
-          </div>
-
-          <div className="glass-card p-8 rounded-xl">
-            <h2 className="text-2xl font-bold mb-6 glow-text flex items-center gap-3">
-              🤝 How I Work
-            </h2>
-            <div className="space-y-4 text-slate-300">
-              <p>
-                I combine analytical thinking with creative problem-solving. Leading projects, collaborating with teams, and presenting insights in a clear, impactful way are my strengths.
-              </p>
-              <p>
-                I enjoy building initiatives that bring together data and strategy, mentoring peers, and creating opportunities for others to explore business analytics and real-world applications.
-              </p>
-              <p>
-                I believe data isn't just numbers — it's a story waiting to be told, and I'm here to tell it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Skills Section */}
       <section id="skills" className="section-container bg-gradient-to-br from-slate-900/50 to-slate-800/30 rounded-3xl">
@@ -357,27 +236,62 @@ function App() {
 
       {/* Projects Section */}
       <section id="projects" className="section-container">
-        <h2 className="text-3xl font-bold mb-12 glow-text">Projects</h2>
+        <h2 className="text-3xl font-bold mb-6 glow-text text-center">Featured Projects</h2>
+        <p className="text-slate-300 text-center mb-12 max-w-2xl mx-auto">
+          Explore my latest work in data analysis, visualization, and system development
+        </p>
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <a
-              key={project.title}
+            <a 
+              key={project.title} 
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="card group block p-4 rounded-lg hover:scale-105 transition-transform duration-300">
-            
-              <div className="mb-4">{project.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-violet-400">{project.title}</h3>
-              <p className="text-slate-300 mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
+              className="glass-card p-8 rounded-xl group hover:scale-[1.02] transition-all duration-300 
+                         hover:shadow-[0_0_40px_rgba(124,58,237,0.3)] border border-slate-700/50 
+                         hover:border-violet-500/50 cursor-pointer block"
+            >
+              <div className="mb-6 flex items-center justify-between">
+                <div className="w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-600 rounded-2xl 
+                               flex items-center justify-center shadow-lg shadow-violet-500/30 
+                               group-hover:shadow-violet-500/50 transition-all duration-300">
+                  {project.icon}
+                </div>
+                <div className="w-8 h-8 bg-slate-700/50 rounded-full flex items-center justify-center 
+                               group-hover:bg-violet-500/20 transition-all duration-300">
+                  <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-violet-400 
+                                         group-hover:translate-x-0.5 transition-all duration-300" />
+                </div>
+              </div>
+              
+              <h3 className="text-xl font-bold mb-3 text-violet-400 group-hover:text-violet-300 
+                           transition-colors duration-300">
+                {project.title}
+              </h3>
+              
+              <p className="text-slate-300 mb-6 leading-relaxed group-hover:text-slate-200 
+                          transition-colors duration-300">
+                {project.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-2 mb-4">
                 {project.tech.map((tech) => (
-                  <span key={tech} className="px-2 py-1 bg-violet-900/30 text-violet-300 rounded-full text-xs">
+                  <span key={tech} className="px-3 py-1.5 bg-gradient-to-r from-slate-700/50 to-slate-800/50 
+                                           text-slate-200 rounded-lg text-xs font-medium border border-slate-600/30
+                                           group-hover:border-violet-400/50 group-hover:bg-gradient-to-r 
+                                           group-hover:from-violet-900/30 group-hover:to-purple-900/30 
+                                           group-hover:text-violet-200 transition-all duration-300">
                     {tech}
                   </span>
                 ))}
               </div>
-          </a>
+              
+              <div className="flex items-center text-sm text-slate-400 group-hover:text-violet-400 
+                            transition-colors duration-300 font-medium">
+                <span>View on GitHub</span>
+                <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+              </div>
+            </a>
           ))}
         </div>
       </section>
